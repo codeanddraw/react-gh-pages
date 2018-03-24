@@ -9,14 +9,19 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = { contacts: [] };
+    var str = "";
     this.handleAddContact = this.handleAddContact.bind(this);
     this.handleDeleteContact = this.handleDeleteContact.bind(this);
+    this.handleUpdateContact = this.handleUpdateContact.bind(this);
     this.handleToggleContact = this.handleToggleContact.bind(this);
   }
 
   componentDidMount() { db.table('contacts').toArray().then((contacts) => {this.setState({ contacts }); });}
 
   handleAddContact(title) {
+    //alert(title);
+    this.str = title;
+    //alert(this.str);
     const contact = {title, done: false};
     db.table('contacts')
       .add(contact)
@@ -45,6 +50,21 @@ class App extends React.Component {
       });
   }
 
+
+  handleUpdateContact(id) {
+  
+   alert(this.str);
+    //AddContact.document.getElementById("five").value = title;
+    document.getElementById('five').value=this.str ; 
+    //perform deletion
+    db.table('contacts')
+    .delete(id)
+    .then(() => {
+      const newList = this.state.contacts.filter((contact) => contact.id !== id);
+      this.setState({ contacts: newList });
+    });
+  }
+
   render() {
     return (
       <div>
@@ -57,6 +77,7 @@ class App extends React.Component {
           contacts={this.state.contacts}
           handleToggleContact={this.handleToggleContact}
           handleDeleteContact={this.handleDeleteContact}
+          handleUpdateContact={this.handleUpdateContact}
         />
       </div>
     );
