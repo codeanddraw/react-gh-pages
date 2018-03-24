@@ -27,7 +27,7 @@ class App extends React.Component {
       .add(contact)
       .then((id) => { const newList = [...this.state.contacts, Object.assign({}, contact, { id })];
         this.setState({ contacts: newList });
-      });
+      });   
   }
 
   handleToggleContact(id, done) {
@@ -52,9 +52,7 @@ class App extends React.Component {
 
 
   handleUpdateContact(id) {
-  
-   alert(this.str);
-    //AddContact.document.getElementById("five").value = title;
+   //alert(this.str);
     document.getElementById('five').value=this.str ; 
     //perform deletion
     db.table('contacts')
