@@ -20,7 +20,6 @@ class AddContact extends React.Component {
   addContact() {
     var contact = this.state.input.fname +"\t"+ this.state.input.lname +"\t"+ this.state.input.phone +"\t"+ this.state.input.email;
     this.props.handleAddContact(contact);
-    document.getElementById("one").value='ook';
   }
 
   updateContact() {
