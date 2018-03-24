@@ -49,7 +49,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="AppHeader">
-        <h2><img src={ require('./images/img.ico') } height="50px" align="middle" />Nisha's Address Book</h2>
+        <h2><img src={ require('./images/img.ico') } height="50px" align="middle" alt="Contacts"/>Nisha's Address Book</h2>
         </div>
         <AddContact handleAddContact={this.handleAddContact} />
         <ContactList
