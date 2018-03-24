@@ -1,4 +1,4 @@
-# react-gh-pages
+# Nisha's Address-Book
 Technologies used: ES6, React, Dexie.js (for IndexedDB) for address book
 
 Click here to run the build of my code in master branch: https://codeanddraw.github.io/react-gh-pages/
