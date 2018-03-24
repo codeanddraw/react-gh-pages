@@ -7,7 +7,7 @@ const ContactList = ({contacts, handleToggleContact, handleDeleteContact}) => <u
     key={contact.id}
     {...contact}
     handleToggleContact={handleToggleContact}
-   
+    handleDeleteContact={handleDeleteContact}
   />)}
 </ul>;
 
