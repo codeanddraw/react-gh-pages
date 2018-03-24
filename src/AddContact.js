@@ -32,7 +32,6 @@ class AddContact extends React.Component {
   handleChange(newPartialInput) {
     this.setState(state => ({ ...state, input: {...state.input, ...newPartialInput } }))
   //alert();
-    //this.setState({value: newValue})
   }
 
   render() {
@@ -43,11 +42,12 @@ class AddContact extends React.Component {
       <p>Email: <input type="text" value={this.state.input.email} onChange={e => this.handleChange({email: e.target.value})}/></p>
       <button type="button" onClick={this.addContact}>Add Contact</button>
       <br/><br/>
-      <center><table border="1">
+      <center><table >
          <tr >
-            <td>First Name &nbsp; </td>
-            <td > Last Name &nbsp;</td>
-            <td > Phone &nbsp;</td>
+            <td>First Name &nbsp; |&nbsp; </td>
+            <td > Last Name &nbsp; |&nbsp;</td>
+            <td > Phone &nbsp; |&nbsp;</td>
+            <td > Email &nbsp; </td>
           </tr></table></center>
 
         Update: <input type="text" id="five" />
