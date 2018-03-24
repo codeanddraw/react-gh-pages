@@ -18,12 +18,7 @@ class App extends React.Component {
         <div className="App-header">
           <h2>Address Book</h2>
         </div>
-        <AddContact handleAddContact={this.handleAddContact} />
-        <ContactList
-          contacts={this.state.contacts}
-          handleToggleContact={this.handleToggleContact}
-          handleDeleteContact={this.handleDeleteContact}
-        />
+       
       </div>
     );
   }
