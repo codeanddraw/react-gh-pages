@@ -14,20 +14,19 @@ class App extends React.Component {
     this.handleToggleContact = this.handleToggleContact.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount() { db.table('contacts').toArray().then((contacts) => {this.setState({ contacts }); });}
+
+  handleAddContact(title) {
+    const contact = {title, done: false};
     db.table('contacts')
-      .toArray()
-      .then((contacts) => {
-        this.setState({ contacts });
+      .add(contact)
+      .then((id) => { const newList = [...this.state.contacts, Object.assign({}, contact, { id })];
+        this.setState({ contacts: newList });
       });
   }
 
- //add component
-
   handleToggleContact(id, done) {
-    db.table('contacts')
-      .update(id, { done })
-      .then(() => {
+    db.table('contacts').update(id, { done }).then(() => {
         const contactToUpdate = this.state.contacts.find((contact) => contact.id === id);
         const newList = [
           ...this.state.contacts.filter((contact) => contact.id !== id),
@@ -37,13 +36,20 @@ class App extends React.Component {
       });
   }
 
-  //del component
+  handleDeleteContact(id) {
+    db.table('contacts')
+      .delete(id)
+      .then(() => {
+        const newList = this.state.contacts.filter((contact) => contact.id !== id);
+        this.setState({ contacts: newList });
+      });
+  }
 
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Nisha's Address Book</h2>
+        <div className="AppHeader">
+        <h2><img src={ require('./images/img.ico') } height="50px" align="middle" />Nisha's Address Book</h2>
         </div>
         <AddContact handleAddContact={this.handleAddContact} />
         <ContactList
