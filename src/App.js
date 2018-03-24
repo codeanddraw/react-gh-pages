@@ -1,17 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
-class App extends Component {
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { contacts: [] };
+    this.handleAddContact = this.handleAddContact.bind(this);
+    this.handleDeleteContact = this.handleDeleteContact.bind(this);
+    this.handleToggleContact = this.handleToggleContact.bind(this);
+  }
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-         
-          <h1 className="App-title">Welcome to Address Book</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-header">
+          <h2>Address Book</h2>
+        </div>
+        <AddContact handleAddContact={this.handleAddContact} />
+        <ContactList
+          contacts={this.state.contacts}
+          handleToggleContact={this.handleToggleContact}
+          handleDeleteContact={this.handleDeleteContact}
+        />
       </div>
     );
   }

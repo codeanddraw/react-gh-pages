@@ -4,17 +4,9 @@
 
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color: green;
+  height: 40px;
+  padding: 100px;
+  margin-bottom: 40px;
   color: white;
 }
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
