@@ -35,23 +35,16 @@ class AddContact extends React.Component {
   }
 
   render() {
-    return (<div>
-      <p>First Name: <input type="text" value={this.state.input.fname}  onChange={e => this.handleChange({fname: e.target.value})}/></p>
-      <p>Last Name: <input type="text" value={this.state.input.lname} onChange={e => this.handleChange({lname: e.target.value})} /></p>
-      <p>Phone: <input type="text" value={this.state.input.phone} onChange={e => this.handleChange({phone: e.target.value})}/></p>
-      <p>Email: <input type="text" value={this.state.input.email} onChange={e => this.handleChange({email: e.target.value})}/></p>
+    return (<div><p align="left"><b>&nbsp;Insert Contact</b></p><table border ="1" align="center"><br/>
+      First Name: <input type="text" value={this.state.input.fname}  onChange={e => this.handleChange({fname: e.target.value})}/>
+      Last Name: <input type="text" value={this.state.input.lname} onChange={e => this.handleChange({lname: e.target.value})} />
+      Phone: <input type="text" value={this.state.input.phone} onChange={e => this.handleChange({phone: e.target.value})}/>
+      Email: <input type="text" value={this.state.input.email} onChange={e => this.handleChange({email: e.target.value})}/>
       <button type="button" onClick={this.addContact}>Add Contact</button>
-      <br/><br/>
-      <center><table >
-         <tr >
-            <td>First Name &nbsp; |&nbsp; </td>
-            <td > Last Name &nbsp; |&nbsp;</td>
-            <td > Phone &nbsp; |&nbsp;</td>
-            <td > Email &nbsp; </td>
-          </tr></table></center>
-
-        Update: <input type="text" id="five" />
-        <button type="button" onClick={this.updateContact}>Add Contact</button>
+      <br/><br/></table>
+      <br/>
+      <p align="left"><b> &nbsp;Update Contact</b></p> <div align="center"><input type="text" size="146"  id="five" />
+        <button type="button"  onClick={this.updateContact}>UpdateContact</button></div>
     </div>);
   
   }

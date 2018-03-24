@@ -47,11 +47,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div >
         <div className="AppHeader">
         <h2><img src={ require('./images/img.ico') } height="50px" align="middle" alt="Contacts"/>Nisha's Address Book</h2>
         </div>
         <AddContact handleAddContact={this.handleAddContact} />
+        <p align="left">&nbsp;<b>View Contacts</b></p>
         <ContactList
           contacts={this.state.contacts}
           handleToggleContact={this.handleToggleContact}
