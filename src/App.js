@@ -48,7 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="AppHeader">
+        <div className="AppHeader" >
         <h2><img src={ require('./images/img.ico') } height="50px" align="middle" alt="Contacts"/>Nisha's Address Book</h2>
         </div>
         <AddContact handleAddContact={this.handleAddContact} />
