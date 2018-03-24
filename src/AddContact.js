@@ -4,29 +4,43 @@ import PropTypes from 'prop-types';
 class AddContact extends React.Component {
   constructor() {
     super();
-    this.state = {value: ''};
+    this.state = {
+      input: {
+          fname: "",
+          lname: "",
+          phone: "",
+          email: ""
+      }
+  };
     this.addContact = this.addContact.bind(this);
+    this.updateContact = this.updateContact.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   addContact() {
-    var input1 = document.getElementById("one").value;
-    var input2 = document.getElementById("two").value;
-    var input3 = document.getElementById("three").value;
-    var contact = input1 +"\t"+ input2 +"\t"+ input3;
-    //alert(contact);
+    var contact = this.state.input.fname +"\t"+ this.state.input.lname +"\t"+ this.state.input.phone +"\t"+ this.state.input.email;
     this.props.handleAddContact(contact);
   }
 
-  handleChange(newValue) {
-    this.setState({value: newValue})
+  updateContact() {
+    var updates =document.getElementById("five").value;
+    //to debug
+    //alert(updates);
+    this.props.handleAddContact(updates);
+  }
+
+  handleChange(newPartialInput) {
+    this.setState(state => ({ ...state, input: {...state.input, ...newPartialInput } }))
+  //alert();
+    //this.setState({value: newValue})
   }
 
   render() {
     return (<div>
-      <p>First Name: <input type="text" id="one" /></p>
-      <p>Last Name: <input type="text" id="two" /></p>
-      <p>Phone: <input type="text" id="three" /></p>
+      <p>First Name: <input type="text" value={this.state.input.fname}  onChange={e => this.handleChange({fname: e.target.value})}/></p>
+      <p>Last Name: <input type="text" value={this.state.input.lname} onChange={e => this.handleChange({lname: e.target.value})} /></p>
+      <p>Phone: <input type="text" value={this.state.input.phone} onChange={e => this.handleChange({phone: e.target.value})}/></p>
+      <p>Email: <input type="text" value={this.state.input.email} onChange={e => this.handleChange({email: e.target.value})}/></p>
       <button type="button" onClick={this.addContact}>Add Contact</button>
       <br/><br/>
       <center><table border="1">
@@ -35,6 +49,9 @@ class AddContact extends React.Component {
             <td > Last Name &nbsp;</td>
             <td > Phone &nbsp;</td>
           </tr></table></center>
+
+        Update: <input type="text" id="five" />
+        <button type="button" onClick={this.updateContact}>Add Contact</button>
     </div>);
   
   }
