@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = { contacts: [] };
-    var str = "";
+    var str="" ;
     this.handleAddContact = this.handleAddContact.bind(this);
     this.handleDeleteContact = this.handleDeleteContact.bind(this);
     this.handleUpdateContact = this.handleUpdateContact.bind(this);
