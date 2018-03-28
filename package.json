@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "dexie": "^2.0.2",
+    "prettier": "^1.11.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
