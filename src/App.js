@@ -12,7 +12,6 @@ class App extends React.Component {
     this.handleAddContact = this.handleAddContact.bind(this);
     this.handleDeleteContact = this.handleDeleteContact.bind(this);
     this.handleUpdateContact = this.handleUpdateContact.bind(this);
-    //this.handleToggleContact = this.handleToggleContact.bind(this);
   }
 
   componentDidMount() { db.table('contacts').toArray().then((contacts) => {this.setState({ contacts }); });}
@@ -28,16 +27,6 @@ class App extends React.Component {
  }
 
   handleUpdateContact(id,fname,lname,phone,email) {
-   //alert(this.str);
-    
-    //perform deletion
-    /*db.table('contacts')
-    .delete(id)
-    .then(() => {
-      const newList = this.state.contacts.filter((contact) => contact.id !== id);
-      this.setState({ contacts: newList });
-    });*/
-
     document.getElementById('one').value= fname ; 
     document.getElementById('two').value= lname ; 
     document.getElementById('three').value= phone ; 
@@ -64,7 +53,6 @@ handleDeleteContact(id) {
         <p align="left">&nbsp;<b>View Contacts</b></p>
         <ContactList
           contacts={this.state.contacts}
-          //handleToggleContact={this.handleToggleContact}
           handleDeleteContact={this.handleDeleteContact}
           handleUpdateContact={this.handleUpdateContact}
          

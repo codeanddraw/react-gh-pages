@@ -31,7 +31,7 @@ class AddContact extends React.Component {
   this.state.input.phone=in3;
   this.state.input.email=in4;
 
-  this.setState(state => ({ ...state, input: {...state.input, ...newPartialInput } }))
+  this.setState(state => ({ ...state, input: {...state.input, ...newPartialInput } }));
   }
 
   render() {

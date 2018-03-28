@@ -6,7 +6,6 @@ const ContactList = ({contacts, handleDeleteContact, handleUpdateContact}) =>
   {contacts.map((contact) => <Contact
     key={contact.id}
     {...contact}
-    //handleToggleContact={handleToggleContact}
     handleDeleteContact={handleDeleteContact}
     handleUpdateContact={handleUpdateContact}
   />)}

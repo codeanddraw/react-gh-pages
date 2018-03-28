@@ -1,10 +1,7 @@
 import React from 'react';
 import './Contact.css';
   const Contact = ({id,fname,lname,phone,email, handleDeleteContact,handleUpdateContact}) => 
-  
   <table border="1px">
-
-    <td>{id}</td>
     <td>{fname}</td>
     <td>{lname}</td>
     <td>{phone}</td>
