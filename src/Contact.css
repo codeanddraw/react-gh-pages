@@ -1,8 +1,9 @@
-tr, td {
+ td {
     text-align: left;
     padding-top: 5x;
     padding-right: 220px;
     margin-right:10px;
+    margin-top:10px;
     padding-left:1px;
     background-color:white;
     color: black;
@@ -13,4 +14,9 @@ tr, td {
 table {
   border-collapse: collapse;
   table-layout: fixed;
+
 }
+tr.border_bottom td {
+
+    border-bottom:1pt solid black;
+  }
