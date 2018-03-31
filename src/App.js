@@ -5,6 +5,7 @@ import db from './db';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
 
+
 class App extends React.Component {
   constructor() {
     super();
@@ -21,7 +22,6 @@ class App extends React.Component {
       db.transaction('rw', db.contacts, function () {
           const insert_object = {fname:fname,lname:lname,phone:phone,email:email};
           db.contacts.add(insert_object);
-          
       });    
       window.location.reload();    
  }
@@ -35,29 +35,31 @@ class App extends React.Component {
     db.table('contacts').delete(id);
   }
 
-
-
 handleDeleteContact(id) {
   db.table('contacts').delete(id);
   window.location.reload(); 
 }
-
-
   render() {
     return (
-      <div>
+     <div>
         <div className="AppHeader" >
         <h2><img src={ require('./images/img.ico') } height="50px" align="middle" alt="Contacts"/>Nisha's Address Book</h2>
-        </div> 
+       </div>
         <AddContact handleAddContact={this.handleAddContact} />
-        <p align="left">&nbsp;<b>View Contacts</b></p>
-        <ContactList
-          contacts={this.state.contacts}
-          handleDeleteContact={this.handleDeleteContact}
-          handleUpdateContact={this.handleUpdateContact}
-         
-        />
-      </div>
+        <p align="center"><b>&nbsp;View Contacts: </b>
+        <table> 
+        <thead>
+        <tr>
+        < th> First name </th> 
+        < th> Last name </th> 
+        < th> Phone </th> 
+        < th> Email </th> 
+        </tr>
+        </thead>
+        </table></p>
+          <ContactList contacts={this.state.contacts} handleDeleteContact={this.handleDeleteContact} handleUpdateContact={this.handleUpdateContact} />
+          
+    </div>
     );
   }
 }

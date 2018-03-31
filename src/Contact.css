@@ -1,3 +1,16 @@
-ul li {
-    list-style: none;
+tr, td {
+    text-align: left;
+    padding-top: 5x;
+    padding-right: 220px;
+    margin-right:10px;
+    padding-left:1px;
+    background-color:white;
+    color: black;
+    width: 100%;
+    
   }
+  
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './AddContact.css';
 class AddContact extends React.Component {
   constructor() {
     super();
@@ -35,16 +35,18 @@ class AddContact extends React.Component {
   }
 
   render() {
-    return (<div><p align="left"><b>&nbsp;Insert Contact</b></p><table border ="1" align="center"><br/>
-      First Name: <input type="text" value={this.state.input.fname} id="one" onChange={e => this.handleChange({fname: e.target.value})}/>
-      Last Name: <input type="text" value={this.state.input.lname} id="two" onChange={e => this.handleChange({lname: e.target.value})} />
-      Phone: <input type="text" value={this.state.input.phone} id="three" onChange={e => this.handleChange({phone: e.target.value})}/>
-      Email: <input type="text" value={this.state.input.email} id="four" onChange={e => this.handleChange({email: e.target.value})}/>
-      <button type="button" id = "five" onClick={this.addContact}>Add Contact</button>
-      <br/><br/></table>
-      <br/>
- 
-    </div>);
+    return (
+    <form align="center">
+     <fieldset>
+      <legend>Insert Contact:</legend>
+      <b>First Name:</b> <input type="text" placeholder="First Name" value={this.state.input.fname} size="20" id="one" onChange={e => this.handleChange({fname: e.target.value})}/>
+      <b>Last Name: </b><input type="text" placeholder="Last Name" value={this.state.input.lname} size="20" id="two" onChange={e => this.handleChange({lname: e.target.value})} />
+      <b>Phone:</b> <input type="text" placeholder="Phone" value={this.state.input.phone} size="20" id="three" onChange={e => this.handleChange({phone: e.target.value})}/>
+      <b>Email: </b><input type="text" placeholder="Email" value={this.state.input.email} size="20" id="four" onChange={e => this.handleChange({email: e.target.value})}/>
+      <button type="button" class="btn info" id = "five" onClick={this.addContact}>Add Contact</button>
+      </fieldset>
+      </form>
+  );
   
   }
 }
